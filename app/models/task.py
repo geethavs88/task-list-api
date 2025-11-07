@@ -7,7 +7,6 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from .goal import Goal
 
-
 class Task(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     title: Mapped[str]
@@ -19,9 +18,9 @@ class Task(db.Model):
     def to_dict(self) :
         result = {
             "id": self.id,
-            "title" : self.title,
-            "description" : self.description,
-            "is_complete" : False if not self.completed_at else True
+            "title": self.title,
+            "description": self.description,
+            "is_complete": False if not self.completed_at else True
         }
             #"is_complete" : self.is_complete()
         if self.goal_id:
